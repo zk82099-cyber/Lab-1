@@ -21,20 +21,20 @@ fill_ram:
     movb $10, ram+0x60
 
     
-    lea ram+0x51, %dl
+    lea ram+0x51, %eax
     movb $0, %al
-    movb $0, %bl
+    movb $1, %bl
     movb $1, %cl
 
     loop1:
-    mov (%dl), %al
+    mov (%eax), %al
     add %al, %bl
-    inc %dl
+    inc %eax
     inc %cl
-    cmp $10, %cl
+    cmp $11, %cl
     jle loop1
 
-    mov %bl, (%dl)
+    mov %bl, ram+0x50
 
     ret
 
