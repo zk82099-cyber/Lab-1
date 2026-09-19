@@ -7,7 +7,7 @@
 
 fill_ram:
     # Stores FFh into RAM locations 50h-58h using indirect addressing
-    loop:
+    
         lea ram+0x50, %eax
 
         movb $0xFF, (%eax)
